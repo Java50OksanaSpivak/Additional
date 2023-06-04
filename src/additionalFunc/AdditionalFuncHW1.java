@@ -26,20 +26,21 @@ public class AdditionalFuncHW1 {
 //Implement the tests.
 	
 	public static int maxSubsequenceLength(int[] arr) {
-		int res=0;
-		int count=0;
+		int res=1;
+		int count=1;
 		int i;
 		if (arr.length==0) 
-			return res;
+			return 0;
 			else {
 				for (i=0; i < arr.length-1; i++) {
 					if(arr[i]==arr[i+1])
 						count++;
-					else {
-						if(res<count) 
+					else 
+						if(res<count) {
 							res=count;
-						count=0;
-					}
+							count=1;
+						}
+									
 				}
 			}
 		return res;
@@ -57,8 +58,9 @@ public class AdditionalFuncHW1 {
 	public static String toBinaryStr(int number) {
 		String str  = "";
 		do {
-			str = str + number%2;
-		} while (number !=1);
+			str = number%2 + str;
+			number = number/2;
+		} while (number > 0);
 		return str;
 	}
 }
