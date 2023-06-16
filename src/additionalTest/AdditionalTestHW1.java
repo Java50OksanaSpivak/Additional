@@ -1,10 +1,7 @@
 package additionalTest;
-//import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.*;
-//import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import additionalFunc.AdditionalFuncHW1;
-//import additionalFunc.AdditionalFuncHW1.*;
 public class AdditionalTestHW1 {
 
 	//////  1  //////
@@ -36,5 +33,23 @@ public class AdditionalTestHW1 {
 		assertEquals(Integer.toBinaryString(16) , AdditionalFuncHW1.toBinaryStr(16));
 		assertEquals(Integer.toBinaryString(0) , AdditionalFuncHW1.toBinaryStr(0));
 		assertEquals(Integer.toBinaryString(5) , AdditionalFuncHW1.toBinaryStr(5));
+	}
+	///// HW02 task 01//// AD-03///////////
+	@Test
+	void isAnagramTest() {
+		assertEquals(true,AdditionalFuncHW1.isAnagram("hello", "heLol"));
+		assertEquals(false,AdditionalFuncHW1.isAnagram("helloo", "heLol"));
+		assertEquals(false,AdditionalFuncHW1.isAnagram("hello", "heL0l"));
+	}
+/////////////AD-04///////////
+	@Test
+	void hasValidBracketsTest() {
+		assertEquals(true,AdditionalFuncHW1.hasValidBrackets(""));
+		assertEquals(true,AdditionalFuncHW1.hasValidBrackets("abc"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBrackets("a{{bc"));
+		assertEquals(true,AdditionalFuncHW1.hasValidBrackets("a{tyu{[(b)c]f}ghj}dfg"));
+		assertEquals(true,AdditionalFuncHW1.hasValidBrackets("a{{b9()c[]fhguytu}hku}"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBrackets("a{({)bc}}"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBrackets("a{{b c}"));
 	}
 }
