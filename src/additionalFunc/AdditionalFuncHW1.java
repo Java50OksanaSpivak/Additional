@@ -166,6 +166,53 @@ public class AdditionalFuncHW1 {
 		return 0;
 	}
 	
+	/////////////// AD-04  stack free  ///////////
+	
+	public static boolean hasValidBracketsFree(String text) {
+		int ind = 0;
+		//boolean res = false;
+		if( text.isEmpty())
+			return true;
+		if( text.charAt(0) == ')' || text.charAt(0) == ']' || text.charAt(0) == '}'  )
+			return false;
+		char [] helper = new char [text.length()];
+		for (int i= 0; i < text.length(); i++ ) {
+			char letter = text.charAt(i);
+			// Check if the char is a bracket
+			if (letter != ')' && letter != ']' && letter != '}' && letter != '(' && letter != '[' && letter != '{' )
+				continue; // The char is not a bracket 
+			if (letter == '(' || letter == '[' || letter == '{') {
+				helper[ind] = letter ;
+				ind++;
+			}		
+			else {
+				if (letter == ')') {
+					if(helper[ind - 1] == '(') 
+						ind--;
+					else 
+						return false;
+				}
+				else if (letter == ']') {
+					if (helper[ind - 1] == '[') 
+						ind-- ;
+					else 
+						return false;
+				}
+				else if (letter == '}') {
+					if (helper[ind - 1] == '{' ) 
+						ind-- ;
+					else
+						return false;
+				}					
+											
+			 }
+		}
+		return ind == 0 ? true : false;
+	}
+	
+	
+	
+	
 	
 }
 	

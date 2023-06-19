@@ -52,4 +52,15 @@ public class AdditionalTestHW1 {
 		assertEquals(false,AdditionalFuncHW1.hasValidBrackets("a{({)bc}}"));
 		assertEquals(false,AdditionalFuncHW1.hasValidBrackets("a{{b c}"));
 	}
+	@Test
+	void hasValidBracketsFreeTest() {
+		assertEquals(true,AdditionalFuncHW1.hasValidBracketsFree(""));
+		assertEquals(true,AdditionalFuncHW1.hasValidBracketsFree("abc"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBracketsFree("a{{bc"));
+		assertEquals(true,AdditionalFuncHW1.hasValidBracketsFree("a{tyu{[(b)c]f}ghj}dfg"));
+		assertEquals(true,AdditionalFuncHW1.hasValidBracketsFree("a{{b9()c[]fhguytu}hku}"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBracketsFree("a{({)bc}}"));
+		assertEquals(false,AdditionalFuncHW1.hasValidBracketsFree("a{{b c}"));
+	}
+	
 }
